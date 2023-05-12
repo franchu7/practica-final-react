@@ -94,7 +94,7 @@ export default function ProductForm({ category }: ProductFormProps) {
           <TextInput withAsterisk label='Nombre del producto' placeholder='Nombre el juego' {...form.getInputProps('title')} />
           <TextInput withAsterisk label='Descripción del producto' placeholder='Descripción del juego' {...form.getInputProps('description')} />
           <TextInput withAsterisk label='Precio del producto' placeholder='Precio del juego' {...form.getInputProps('price')} />
-          <NumberInput withAsterisk label='Stock del producto' placeholder='Stock del juego' {...form.getInputProps('stock')} />
+          <NumberInput withAsterisk min={1} label='Stock del producto' placeholder='Stock del juego' {...form.getInputProps('stock')} />
           <Text fw={500} fz={'sm'} mt={'xs'}>
             Imagen del producto
           </Text>
@@ -136,7 +136,13 @@ export default function ProductForm({ category }: ProductFormProps) {
           </Group>
         </form>
       </Modal>
-      <Button ml={'lg'} color='green' onClick={open}>
+      <Button
+        ml={'lg'}
+        style={{
+          background: 'green',
+        }}
+        onClick={open}
+      >
         Añadir juego
       </Button>
     </>

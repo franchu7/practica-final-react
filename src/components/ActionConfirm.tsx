@@ -6,12 +6,12 @@ import { CartProductI } from '../data/products'
 type ConfirmDialogProps = {
   msg: string
   type: 'empty-cart' | 'order'
-  disabledButton?: boolean
+  isEmptyCart: boolean
+  setViewAlert?: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export default function ActionConfirm({ msg, type, disabledButton }: ConfirmDialogProps) {
+export default function ActionConfirm({ msg, type, isEmptyCart, setViewAlert }: ConfirmDialogProps) {
   const [opened, { open, close }] = useDisclosure(false)
-
   return (
     <>
       <Modal
@@ -31,6 +31,7 @@ export default function ActionConfirm({ msg, type, disabledButton }: ConfirmDial
           <Button
             color={`${type === 'empty-cart' ? 'red' : 'green'}}`}
             onClick={() => {
+              if (setViewAlert) setViewAlert(true)
               if (type === 'empty-cart') {
                 const categories = JSON.parse(localStorage.getItem('categories')!) as CategoryI[]
                 const shopCart = JSON.parse(localStorage.getItem('shopping-cart')!) as CartProductI[]
@@ -57,9 +58,11 @@ export default function ActionConfirm({ msg, type, disabledButton }: ConfirmDial
           </Button>
         </Group>
       </Modal>
-      <Button color={`${type === 'empty-cart' ? 'red' : 'green'}`} disabled={disabledButton}  onClick={open}>
-        {type === 'empty-cart' ? 'Vaciar cesta' : 'Realizar pedido'}
-      </Button>
+      {!isEmptyCart && (
+        <Button color={`${type === 'empty-cart' ? 'red' : 'green'}`} onClick={open}>
+          {type === 'empty-cart' ? 'Vaciar cesta' : 'Realizar pedido'}
+        </Button>
+      )}
     </>
   )
 }

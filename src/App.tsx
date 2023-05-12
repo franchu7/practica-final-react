@@ -10,10 +10,10 @@ function App() {
 
   return (
     <Paper
+      radius={'none'}
       style={{
         background: '#051223',
       }}
-      
     >
       <AppShell padding='xl'>
         <Grid>

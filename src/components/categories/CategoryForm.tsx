@@ -55,7 +55,9 @@ export default function CategoryFOrm() {
           </Group>
         </form>
       </Modal>
-      <Button color='green' onClick={open}>
+      <Button style={{
+        background: 'green',
+      }}  onClick={open}>
         Añadir categoría
       </Button>
     </>
