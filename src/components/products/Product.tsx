@@ -17,7 +17,14 @@ export default function Product({ productData }: ProductProps) {
   }
 
   return (
-    <Paper my={'md'} bg={'white'} radius={'lg'} p={'md'}>
+    <Paper
+      my={'md'}
+      style={{
+        background: '#7889c9',
+      }}
+      radius={'lg'}
+      p={'md'}
+    >
       <Grid align='center'>
         <Grid.Col sm={3}>
           <Stack spacing={'xs'}>
@@ -47,7 +54,13 @@ export default function Product({ productData }: ProductProps) {
           </Stack>
         </Grid.Col>
         <Grid.Col sm={9}>
-          <Stack spacing={'sm'}>
+          <Stack
+            p={'xs'}
+            spacing={'sm'}
+            style={{
+              background: '#9aa6d6',
+            }}
+          >
             <Group spacing={'xs'}>
               <Text fw={500}>Código de producto:</Text>
               <Text fz={'sm'}>{productData.code}</Text>

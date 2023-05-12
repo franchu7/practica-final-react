@@ -9,11 +9,14 @@ type CategoryProps = {
 
 export default function Category({ categoryData }: CategoryProps) {
   return (
-    <Accordion.Item value={categoryData.name}>
-      <Paper bg={'gray'} p='md'>
-        <Paper bg={'cyan'} p='sm'>
+    <Accordion.Item value={categoryData.name} mb={'lg'}>
+      <Paper style={{
+        background: '#19376D',
+      }} p='sm'>
           <Accordion.Control>
-            <Paper p={'sm'} bg={'blue'} radius={'md'}>
+            <Paper p={'sm'} style={{
+        background: '#576CBC',
+      }} radius={'md'}>
               <Title align='center' order={2} fw={500}>
                 {categoryData.name}
               </Title>
@@ -25,7 +28,6 @@ export default function Category({ categoryData }: CategoryProps) {
               return <Product key={product.id} productData={product} />
             })}
           </Accordion.Panel>
-        </Paper>
       </Paper>
     </Accordion.Item>
   )

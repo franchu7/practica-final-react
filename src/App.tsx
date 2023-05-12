@@ -1,4 +1,4 @@
-import { BackgroundImage, Grid, AppShell } from '@mantine/core'
+import { Grid, AppShell, Paper } from '@mantine/core'
 import { useEffect } from 'react'
 import CategoriesList from './components/categories/CategoriesList'
 import ShoppingCart from './components/shopCart/ShoppingCart'
@@ -9,7 +9,12 @@ function App() {
   }, [])
 
   return (
-    <BackgroundImage h='100%' w='100%' src='/background.jpg'>
+    <Paper
+      style={{
+        background: '#051223',
+      }}
+      
+    >
       <AppShell padding='xl'>
         <Grid>
           <Grid.Col md={6}>
@@ -20,7 +25,7 @@ function App() {
           </Grid.Col>
         </Grid>
       </AppShell>
-    </BackgroundImage>
+    </Paper>
   )
 }
 

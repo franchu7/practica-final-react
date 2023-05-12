@@ -20,18 +20,29 @@ export default function ShoppingCart() {
 
   return (
     <Stack spacing={'sm'}>
-      <Paper p={'md'}>
+      <Paper
+        p={'md'}
+        style={{
+          background: '#455696',
+        }}
+      >
         <Title order={1} fw={500} align='center'>
           Cesta de la compra
         </Title>
       </Paper>
-      <ActionConfirm
-        msg={'¿Está seguro/a de quiere vaciar la cesta?'}
-        type={'empty-cart'}
-        disabledButton={shoppingCart.length === 0}
-      />
-      <Paper bg={'gray'} p='md' withBorder>
-        <Paper bg={'grape'} p='sm'>
+      <ActionConfirm msg={'¿Está seguro/a de quiere vaciar la cesta?'} type={'empty-cart'} disabledButton={shoppingCart.length === 0} />
+      <Paper
+        style={{
+          background: '#19376D',
+        }}
+        p='md'
+      >
+        <Paper
+          style={{
+            background: '#576CBC',
+          }}
+          p='sm'
+        >
           {shoppingCart.length > 0 ? (
             <Stack>
               <>
@@ -39,9 +50,20 @@ export default function ShoppingCart() {
                   return <CartProduct key={product.id} productData={product} />
                 })}
               </>
-              <Paper bg={'blue'} p={'md'} radius={'md'}>
+              <Paper
+                style={{
+                  background: '#7889c9',
+                }}
+                p={'md'}
+                radius={'md'}
+              >
                 <Group position={'apart'}>
-                  <Paper bg={'white'} p={'xs'}>
+                  <Paper
+                    style={{
+                      background: '#9aa6d6',
+                    }}
+                    p={'xs'}
+                  >
                     <Title order={3} fw={500}>
                       Total: {shoppingCart.reduce((acc, product) => acc + product.amount, 0).toFixed(2)} €
                     </Title>

@@ -8,7 +8,9 @@ type CartProductProps = {
 
 export default function CartProduct({ productData }: CartProductProps) {
   return (
-    <Paper my={'md'} bg={'white'} radius={'lg'} p={'md'}>
+    <Paper my={'md'} style={{
+      background: '#576CBC',
+    }} radius={'lg'} p={'md'}>
       <Grid align='center'>
         <Grid.Col sm={3}>
           <Stack spacing={'xs'}>
@@ -19,7 +21,9 @@ export default function CartProduct({ productData }: CartProductProps) {
           </Stack>
         </Grid.Col>
         <Grid.Col sm={9}>
-          <Stack spacing={'sm'}>
+          <Stack spacing={'sm'} style={{
+              background: '#9aa6d6',
+            }} p={'xs'}>
             <Group spacing={'xs'}>
               <Text fw={500}>Código de producto:</Text>
               <Text fz={'sm'}>{productData.code}</Text>

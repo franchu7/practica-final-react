@@ -22,13 +22,15 @@ export default function CategoriesList() {
 
   return (
     <Stack spacing={'sm'}>
-      <Paper p={'md'}>
+      <Paper p={'md'} style={{
+        background: '#455696',
+      }}>
         <Title order={1} fw={500} align='center'>
           Categorías
         </Title>
       </Paper>
       <CategoryForm />
-      <Accordion variant='separated' transitionDuration={600} multiple>
+      <Accordion variant={'filled'} transitionDuration={600} multiple>
         {categories.map((category) => {
           return <Category key={category.id} categoryData={category} />
         })}
